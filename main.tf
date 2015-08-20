@@ -7,7 +7,7 @@ variable "domain" {
 variable "target" {
   description = "The target of the redirect."
 }
-variable "r53_zone_id" {
+variable "zone_id" {
   description = "The Route 53 Zone ID of the DNS zone in which to create the redirect record."
 }
 
@@ -23,7 +23,7 @@ resource "aws_s3_bucket" "b" {
 }
 
 resource "aws_route53_record" "r" {
-  zone_id = "${var.r53_zone_id}"
+  zone_id = "${var.zone_id}"
   name = "${var.domain}"
   type = "A"
   alias {
