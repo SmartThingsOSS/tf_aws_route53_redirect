@@ -11,10 +11,6 @@ variable "zone_id" {
   description = "The Route 53 Zone ID of the DNS zone in which to create the redirect record."
 }
 
-provider "aws" {
-  region = "${var.region}"
-}
-
 resource "aws_s3_bucket" "b" {
   bucket = "${var.domain}"
   website {
